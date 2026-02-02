@@ -1,37 +1,57 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Método Antigravity | Faça a IA Codar Sem Erros</title>
-  <meta name="description" content="O método usado em projetos reais para fazer a IA escrever código que funciona de primeira. Chega de retrabalho infinito.">
+  <title>Método Sentinel | Código Blindado com IA</title>
+  <meta name="description"
+    content="O sistema que blinda seu código contra erros de IA. Proteção em camadas, controle total, zero retrabalho.">
 
-  <meta property="og:title" content="Método Antigravity - AI-Driven Development">
-  <meta property="og:description" content="Aprenda a usar IA para codar sem erros. Método usado em projetos reais.">
+  <meta property="og:title" content="Método Sentinel - AI-Driven Development">
+  <meta property="og:description" content="Código blindado contra erros de IA. Proteção. Controle. Precisão.">
   <meta property="og:type" content="website">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
 
   <style>
-    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-
-    :root {
-      --primary: #8b5cf6;
-      --primary-light: #a78bfa;
-      --accent: #06ffa5;
-      --dark: #09090b;
-      --dark-lighter: #18181b;
-      --dark-card: #1c1c22;
-      --text: #fafafa;
-      --text-muted: #a1a1aa;
-      --text-dim: #71717a;
-      --gradient: linear-gradient(135deg, #8b5cf6 0%, #06ffa5 100%);
-      --glow: 0 0 60px rgba(139,92,246,0.3);
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
-    html { scroll-behavior: smooth; }
+    :root {
+      --primary: #00d4ff;
+      --primary-dark: #0099cc;
+      --secondary: #7c3aed;
+      --accent: #00ff88;
+      --warning: #ff6b35;
+      --dark: #030712;
+      --dark-800: #0a0f1a;
+      --dark-700: #111827;
+      --dark-600: #1a2332;
+      --dark-500: #243044;
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+      --text-dim: #64748b;
+      --gradient-primary: linear-gradient(135deg, #00d4ff 0%, #7c3aed 100%);
+      --gradient-accent: linear-gradient(135deg, #00ff88 0%, #00d4ff 100%);
+      --gradient-dark: linear-gradient(180deg, var(--dark) 0%, var(--dark-800) 100%);
+      --glow-primary: 0 0 40px rgba(0, 212, 255, 0.3);
+      --glow-accent: 0 0 40px rgba(0, 255, 136, 0.3);
+      --border-glow: rgba(0, 212, 255, 0.2);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
       font-family: 'Inter', -apple-system, sans-serif;
@@ -39,6 +59,10 @@
       color: var(--text);
       line-height: 1.6;
       overflow-x: hidden;
+    }
+
+    .mono {
+      font-family: 'JetBrains Mono', monospace;
     }
 
     .container {
@@ -49,29 +73,133 @@
     }
 
     @media (min-width: 768px) {
-      .container { padding: 0 32px; }
+      .container {
+        padding: 0 32px;
+      }
+    }
+
+    /* Grid Background */
+    .grid-bg {
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(0, 212, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 212, 255, 0.03) 1px, transparent 1px);
+      background-size: 50px 50px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .grid-bg::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 80% 50% at 50% 0%, rgba(0, 212, 255, 0.08), transparent 70%);
     }
 
     /* Animations */
     @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     @keyframes pulse {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.5; }
+
+      0%,
+      100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0.5;
+      }
     }
 
     @keyframes glow {
-      0%, 100% { box-shadow: 0 0 20px rgba(139,92,246,0.4); }
-      50% { box-shadow: 0 0 40px rgba(139,92,246,0.7); }
+
+      0%,
+      100% {
+        box-shadow: 0 0 20px rgba(0, 212, 255, 0.4);
+      }
+
+      50% {
+        box-shadow: 0 0 40px rgba(0, 212, 255, 0.7), 0 0 60px rgba(0, 212, 255, 0.4);
+      }
     }
 
-    .animate { animation: fadeUp 0.8s ease forwards; }
-    .animate-delay-1 { animation-delay: 0.1s; opacity: 0; }
-    .animate-delay-2 { animation-delay: 0.2s; opacity: 0; }
-    .animate-delay-3 { animation-delay: 0.3s; opacity: 0; }
+    @keyframes scan {
+      0% {
+        transform: translateY(-100%);
+      }
+
+      100% {
+        transform: translateY(100vh);
+      }
+    }
+
+    @keyframes borderGlow {
+
+      0%,
+      100% {
+        border-color: rgba(0, 212, 255, 0.3);
+      }
+
+      50% {
+        border-color: rgba(0, 212, 255, 0.6);
+      }
+    }
+
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    .animate {
+      animation: fadeUp 0.8s ease forwards;
+    }
+
+    .animate-delay-1 {
+      animation-delay: 0.1s;
+      opacity: 0;
+    }
+
+    .animate-delay-2 {
+      animation-delay: 0.2s;
+      opacity: 0;
+    }
+
+    .animate-delay-3 {
+      animation-delay: 0.3s;
+      opacity: 0;
+    }
+
+    /* Scan Line Effect */
+    .scan-line {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--primary), transparent);
+      opacity: 0.3;
+      animation: scan 8s linear infinite;
+      pointer-events: none;
+      z-index: 1000;
+    }
 
     /* Navigation */
     .nav {
@@ -81,9 +209,9 @@
       right: 0;
       z-index: 100;
       padding: 16px 0;
-      background: rgba(9,9,11,0.9);
+      background: rgba(3, 7, 18, 0.9);
       backdrop-filter: blur(20px);
-      border-bottom: 1px solid rgba(255,255,255,0.05);
+      border-bottom: 1px solid var(--border-glow);
     }
 
     .nav-content {
@@ -93,28 +221,49 @@
     }
 
     .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
       font-size: 18px;
       font-weight: 800;
-      background: var(--gradient);
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .nav-logo-icon {
+      width: 32px;
+      height: 32px;
+      background: var(--gradient-primary);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+    }
+
+    .nav-logo span {
+      background: var(--gradient-primary);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
     }
 
     .nav-cta {
-      background: var(--primary);
-      color: white;
+      background: transparent;
+      color: var(--primary);
       padding: 10px 20px;
       border-radius: 8px;
       font-weight: 600;
       font-size: 14px;
       text-decoration: none;
+      border: 1px solid var(--primary);
       transition: all 0.3s;
     }
 
     .nav-cta:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 4px 20px rgba(139,92,246,0.4);
+      background: var(--primary);
+      color: var(--dark);
+      box-shadow: var(--glow-primary);
     }
 
     /* Hero */
@@ -126,53 +275,61 @@
       position: relative;
     }
 
-    .hero::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(139,92,246,0.2), transparent);
-      pointer-events: none;
-    }
-
     .hero-content {
       position: relative;
       text-align: center;
-      max-width: 800px;
+      max-width: 900px;
       margin: 0 auto;
+      z-index: 1;
     }
 
     .hero-badge {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      background: rgba(139,92,246,0.1);
-      border: 1px solid rgba(139,92,246,0.2);
-      padding: 8px 16px;
+      gap: 10px;
+      background: rgba(0, 212, 255, 0.08);
+      border: 1px solid rgba(0, 212, 255, 0.2);
+      padding: 10px 20px;
       border-radius: 100px;
       font-size: 13px;
-      font-weight: 500;
-      color: var(--primary-light);
-      margin-bottom: 24px;
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: 28px;
+      animation: borderGlow 3s ease infinite;
     }
 
-    .hero-badge-dot {
-      width: 6px;
-      height: 6px;
+    .hero-badge-icon {
+      width: 8px;
+      height: 8px;
       background: var(--accent);
       border-radius: 50%;
       animation: pulse 2s infinite;
+      box-shadow: 0 0 10px var(--accent);
+    }
+
+    .hero-status {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      color: var(--accent);
+      letter-spacing: 1px;
     }
 
     .hero-title {
-      font-size: clamp(36px, 8vw, 64px);
+      font-size: clamp(40px, 9vw, 72px);
       font-weight: 900;
-      line-height: 1.1;
-      margin-bottom: 20px;
-      letter-spacing: -2px;
+      line-height: 1.05;
+      margin-bottom: 24px;
+      letter-spacing: -3px;
     }
 
-    .hero-title .highlight {
-      background: var(--gradient);
+    .hero-title .line1 {
+      display: block;
+      color: var(--text);
+    }
+
+    .hero-title .line2 {
+      display: block;
+      background: var(--gradient-primary);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
@@ -182,35 +339,138 @@
       font-size: clamp(16px, 3vw, 20px);
       color: var(--text-muted);
       max-width: 600px;
-      margin: 0 auto 32px;
+      margin: 0 auto 40px;
+      line-height: 1.7;
+    }
+
+    .hero-subtitle strong {
+      color: var(--text);
+    }
+
+    .hero-cta-group {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      align-items: center;
+      margin-bottom: 60px;
+    }
+
+    @media (min-width: 640px) {
+      .hero-cta-group {
+        flex-direction: row;
+        justify-content: center;
+      }
     }
 
     .hero-cta {
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      background: var(--gradient);
+      background: var(--gradient-primary);
       color: var(--dark);
-      padding: 16px 32px;
+      padding: 18px 36px;
       border-radius: 12px;
       font-size: 16px;
       font-weight: 700;
       text-decoration: none;
       transition: all 0.3s;
-      box-shadow: 0 4px 30px rgba(139,92,246,0.3);
+      box-shadow: var(--glow-primary);
     }
 
     .hero-cta:hover {
       transform: translateY(-3px);
-      box-shadow: 0 8px 40px rgba(139,92,246,0.5);
+      box-shadow: 0 10px 50px rgba(0, 212, 255, 0.4);
     }
 
-    .hero-stats {
+    .hero-cta-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: transparent;
+      color: var(--text-muted);
+      padding: 18px 36px;
+      border-radius: 12px;
+      font-size: 16px;
+      font-weight: 600;
+      text-decoration: none;
+      border: 1px solid var(--dark-500);
+      transition: all 0.3s;
+    }
+
+    .hero-cta-secondary:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
+    /* Hero Shield Visual */
+    .hero-visual {
+      position: relative;
       display: flex;
       justify-content: center;
-      gap: 32px;
-      margin-top: 48px;
-      flex-wrap: wrap;
+      margin-bottom: 40px;
+    }
+
+    .shield-container {
+      position: relative;
+      width: 180px;
+      height: 200px;
+      animation: float 6s ease-in-out infinite;
+    }
+
+    @media (min-width: 768px) {
+      .shield-container {
+        width: 220px;
+        height: 240px;
+      }
+    }
+
+    .shield {
+      width: 100%;
+      height: 100%;
+      position: relative;
+    }
+
+    .shield svg {
+      width: 100%;
+      height: 100%;
+      filter: drop-shadow(0 0 30px rgba(0, 212, 255, 0.4));
+    }
+
+    .shield-rings {
+      position: absolute;
+      inset: -40px;
+      border: 1px solid rgba(0, 212, 255, 0.1);
+      border-radius: 50%;
+      animation: pulse 4s ease infinite;
+    }
+
+    .shield-rings::before {
+      content: '';
+      position: absolute;
+      inset: 20px;
+      border: 1px solid rgba(0, 212, 255, 0.15);
+      border-radius: 50%;
+    }
+
+    .shield-rings::after {
+      content: '';
+      position: absolute;
+      inset: 40px;
+      border: 1px solid rgba(0, 212, 255, 0.2);
+      border-radius: 50%;
+    }
+
+    /* Stats Bar */
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 24px;
+      background: rgba(0, 212, 255, 0.03);
+      border: 1px solid rgba(0, 212, 255, 0.1);
+      border-radius: 16px;
     }
 
     .hero-stat {
@@ -218,19 +478,25 @@
     }
 
     .hero-stat-value {
-      font-size: 28px;
-      font-weight: 800;
-      color: var(--accent);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: clamp(24px, 5vw, 32px);
+      font-weight: 700;
+      color: var(--primary);
+      text-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
     }
 
     .hero-stat-label {
-      font-size: 13px;
+      font-size: 12px;
       color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-top: 4px;
     }
 
-    /* Problem Section */
-    .problem {
-      padding: 100px 0;
+    /* Section Styles */
+    section {
+      position: relative;
+      z-index: 1;
     }
 
     .section-header {
@@ -239,16 +505,28 @@
     }
 
     .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'JetBrains Mono', monospace;
       font-size: 12px;
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 2px;
-      color: var(--primary-light);
-      margin-bottom: 12px;
+      color: var(--primary);
+      margin-bottom: 16px;
+      padding: 8px 16px;
+      background: rgba(0, 212, 255, 0.08);
+      border-radius: 100px;
+    }
+
+    .section-label::before {
+      content: '//';
+      opacity: 0.5;
     }
 
     .section-title {
-      font-size: clamp(28px, 5vw, 44px);
+      font-size: clamp(28px, 5vw, 48px);
       font-weight: 800;
       margin-bottom: 16px;
       letter-spacing: -1px;
@@ -261,49 +539,78 @@
       margin: 0 auto;
     }
 
+    /* Problem Section */
+    .problem {
+      padding: 100px 0;
+      background: var(--dark-800);
+    }
+
     .problem-grid {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 20px;
+      gap: 16px;
     }
 
     @media (min-width: 640px) {
-      .problem-grid { grid-template-columns: repeat(2, 1fr); }
+      .problem-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
     }
 
     @media (min-width: 1024px) {
-      .problem-grid { grid-template-columns: repeat(4, 1fr); }
+      .problem-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
     }
 
     .problem-card {
-      background: var(--dark-card);
-      border: 1px solid rgba(255,255,255,0.05);
+      background: var(--dark-700);
+      border: 1px solid rgba(255, 107, 53, 0.1);
       border-radius: 16px;
       padding: 28px 24px;
       transition: all 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .problem-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--warning), transparent);
+      opacity: 0;
+      transition: opacity 0.3s;
     }
 
     .problem-card:hover {
       transform: translateY(-4px);
-      border-color: rgba(239,68,68,0.3);
+      border-color: rgba(255, 107, 53, 0.3);
+    }
+
+    .problem-card:hover::before {
+      opacity: 1;
     }
 
     .problem-icon {
       width: 48px;
       height: 48px;
-      background: rgba(239,68,68,0.1);
+      background: rgba(255, 107, 53, 0.1);
       border-radius: 12px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 24px;
+      font-size: 22px;
       margin-bottom: 16px;
     }
 
     .problem-card h3 {
-      font-size: 17px;
+      font-size: 16px;
       font-weight: 700;
       margin-bottom: 8px;
+      color: var(--text);
     }
 
     .problem-card p {
@@ -315,7 +622,6 @@
     /* Solution Section */
     .solution {
       padding: 100px 0;
-      background: var(--dark-lighter);
     }
 
     .solution-grid {
@@ -325,46 +631,148 @@
     }
 
     @media (min-width: 768px) {
-      .solution-grid { grid-template-columns: repeat(3, 1fr); }
+      .solution-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
     }
 
     .solution-card {
-      background: linear-gradient(135deg, var(--dark-card), rgba(139,92,246,0.05));
-      border: 1px solid rgba(139,92,246,0.15);
+      background: var(--dark-700);
+      border: 1px solid rgba(0, 212, 255, 0.1);
       border-radius: 20px;
-      padding: 32px 28px;
+      padding: 36px 28px;
       text-align: center;
-      transition: all 0.3s;
+      transition: all 0.4s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .solution-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 50% 0%, rgba(0, 212, 255, 0.1), transparent 70%);
+      opacity: 0;
+      transition: opacity 0.4s;
     }
 
     .solution-card:hover {
-      transform: translateY(-6px);
-      border-color: rgba(139,92,246,0.4);
-      box-shadow: 0 20px 60px rgba(139,92,246,0.15);
+      transform: translateY(-8px);
+      border-color: rgba(0, 212, 255, 0.4);
+      box-shadow: 0 20px 60px rgba(0, 212, 255, 0.1);
+    }
+
+    .solution-card:hover::before {
+      opacity: 1;
     }
 
     .solution-icon {
-      width: 64px;
-      height: 64px;
-      background: var(--gradient);
-      border-radius: 16px;
+      width: 72px;
+      height: 72px;
+      background: var(--gradient-primary);
+      border-radius: 20px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 28px;
-      margin: 0 auto 20px;
+      font-size: 32px;
+      margin: 0 auto 24px;
+      position: relative;
+      z-index: 1;
+      box-shadow: 0 10px 40px rgba(0, 212, 255, 0.3);
     }
 
     .solution-card h3 {
       font-size: 20px;
       font-weight: 700;
       margin-bottom: 12px;
+      position: relative;
+      z-index: 1;
     }
 
     .solution-card p {
       font-size: 15px;
       color: var(--text-muted);
       line-height: 1.7;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Protection Layers Section */
+    .layers {
+      padding: 100px 0;
+      background: var(--dark-800);
+    }
+
+    .layers-visual {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .layer-item {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      background: var(--dark-700);
+      border: 1px solid rgba(0, 212, 255, 0.1);
+      border-radius: 16px;
+      padding: 24px;
+      transition: all 0.3s;
+    }
+
+    .layer-item:hover {
+      border-color: var(--primary);
+      transform: translateX(8px);
+    }
+
+    .layer-number {
+      width: 48px;
+      height: 48px;
+      background: var(--gradient-primary);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--dark);
+      flex-shrink: 0;
+    }
+
+    .layer-content h3 {
+      font-size: 17px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .layer-content p {
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    .layer-status {
+      margin-left: auto;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      color: var(--accent);
+      padding: 6px 12px;
+      background: rgba(0, 255, 136, 0.1);
+      border-radius: 100px;
+      white-space: nowrap;
+    }
+
+    @media (max-width: 640px) {
+      .layer-item {
+        flex-wrap: wrap;
+      }
+
+      .layer-status {
+        margin-left: 68px;
+        margin-top: 8px;
+      }
     }
 
     /* Results Section */
@@ -374,51 +782,53 @@
 
     .results-grid {
       display: grid;
-      grid-template-columns: 1fr;
-      gap: 20px;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
     }
 
     @media (min-width: 768px) {
-      .results-grid { grid-template-columns: repeat(2, 1fr); }
-    }
-
-    @media (min-width: 1024px) {
-      .results-grid { grid-template-columns: repeat(4, 1fr); }
+      .results-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
     }
 
     .result-card {
-      background: var(--dark-card);
-      border: 1px solid rgba(6,255,165,0.1);
+      background: var(--dark-700);
+      border: 1px solid rgba(0, 255, 136, 0.1);
       border-radius: 16px;
-      padding: 28px 24px;
+      padding: 32px 24px;
       text-align: center;
       transition: all 0.3s;
     }
 
     .result-card:hover {
-      border-color: rgba(6,255,165,0.3);
+      border-color: rgba(0, 255, 136, 0.4);
       transform: translateY(-4px);
+      box-shadow: 0 10px 40px rgba(0, 255, 136, 0.1);
     }
 
     .result-value {
-      font-size: 40px;
-      font-weight: 900;
-      background: var(--gradient);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: clamp(36px, 6vw, 48px);
+      font-weight: 700;
+      background: var(--gradient-accent);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
     }
 
     .result-label {
-      font-size: 14px;
+      font-size: 13px;
       color: var(--text-muted);
       margin-top: 8px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
     }
 
     /* Instructor Section */
     .instructor {
       padding: 100px 0;
-      background: var(--dark-lighter);
+      background: var(--dark-800);
     }
 
     .instructor-card {
@@ -427,17 +837,29 @@
       gap: 32px;
       max-width: 900px;
       margin: 0 auto;
-      background: var(--dark-card);
-      border: 1px solid rgba(139,92,246,0.2);
+      background: var(--dark-700);
+      border: 1px solid rgba(0, 212, 255, 0.15);
       border-radius: 24px;
       padding: 32px 24px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .instructor-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: var(--gradient-primary);
     }
 
     @media (min-width: 768px) {
       .instructor-card {
         flex-direction: row;
-        padding: 40px;
-        gap: 40px;
+        padding: 48px;
+        gap: 48px;
       }
     }
 
@@ -447,61 +869,117 @@
     }
 
     .avatar-placeholder {
-      width: 120px;
-      height: 120px;
-      background: var(--gradient);
-      border-radius: 20px;
+      width: 140px;
+      height: 140px;
+      background: var(--gradient-primary);
+      border-radius: 24px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 40px;
+      font-size: 48px;
       font-weight: 800;
       color: var(--dark);
       margin: 0 auto;
+      box-shadow: 0 20px 60px rgba(0, 212, 255, 0.3);
     }
 
-    .instructor-info { flex: 1; }
+    .avatar-img {
+      width: 160px;
+      height: 160px;
+      border-radius: 24px;
+      object-fit: cover;
+      box-shadow: 0 20px 60px rgba(0, 212, 255, 0.3);
+      border: 3px solid var(--primary);
+    }
+
+    .instructor-stats {
+      display: flex;
+      gap: 24px;
+      margin-bottom: 24px;
+      padding: 16px 0;
+      border-top: 1px solid rgba(0, 212, 255, 0.1);
+      border-bottom: 1px solid rgba(0, 212, 255, 0.1);
+    }
+
+    .stat-item {
+      text-align: center;
+    }
+
+    .stat-value {
+      display: block;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .stat-label {
+      font-size: 11px;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .instructor-certs {
+      margin-top: 16px;
+      padding: 16px;
+      background: rgba(0, 212, 255, 0.03);
+      border: 1px solid rgba(0, 212, 255, 0.1);
+      border-radius: 12px;
+    }
+
+    .cert-list {
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    .instructor-info {
+      flex: 1;
+    }
 
     .instructor-name {
-      font-size: 24px;
+      font-size: 28px;
       font-weight: 800;
       margin-bottom: 4px;
     }
 
     .instructor-role {
-      color: var(--primary-light);
+      color: var(--primary);
       font-size: 14px;
-      margin-bottom: 16px;
+      font-weight: 500;
+      margin-bottom: 20px;
     }
 
     .instructor-badges {
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
-      margin-bottom: 20px;
+      margin-bottom: 24px;
     }
 
     .badge {
-      padding: 6px 12px;
-      border-radius: 100px;
-      font-size: 11px;
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-size: 12px;
       font-weight: 600;
     }
 
     .badge-primary {
-      background: rgba(139,92,246,0.15);
-      color: var(--primary-light);
+      background: rgba(0, 212, 255, 0.1);
+      color: var(--primary);
+      border: 1px solid rgba(0, 212, 255, 0.2);
     }
 
     .badge-accent {
-      background: rgba(6,255,165,0.1);
+      background: rgba(0, 255, 136, 0.1);
       color: var(--accent);
+      border: 1px solid rgba(0, 255, 136, 0.2);
     }
 
     .instructor-bio {
       color: var(--text-muted);
       font-size: 15px;
-      line-height: 1.7;
+      line-height: 1.8;
       margin-bottom: 12px;
     }
 
@@ -510,13 +988,15 @@
     }
 
     .instructor-companies {
-      margin-top: 20px;
-      padding: 16px;
-      background: rgba(255,255,255,0.02);
+      margin-top: 24px;
+      padding: 20px;
+      background: rgba(0, 212, 255, 0.03);
+      border: 1px solid rgba(0, 212, 255, 0.1);
       border-radius: 12px;
     }
 
     .company-label {
+      font-family: 'JetBrains Mono', monospace;
       font-size: 11px;
       text-transform: uppercase;
       letter-spacing: 1px;
@@ -525,28 +1005,31 @@
     }
 
     .company-names {
-      font-size: 14px;
+      font-size: 15px;
       font-weight: 600;
       color: var(--text);
     }
 
     .instructor-social {
-      margin-top: 20px;
+      margin-top: 24px;
     }
 
     .social-link {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      color: var(--primary-light);
+      color: var(--primary);
       text-decoration: none;
       font-size: 14px;
       font-weight: 500;
-      transition: color 0.3s;
+      padding: 10px 16px;
+      background: rgba(0, 212, 255, 0.08);
+      border-radius: 8px;
+      transition: all 0.3s;
     }
 
     .social-link:hover {
-      color: var(--accent);
+      background: rgba(0, 212, 255, 0.15);
     }
 
     /* Curriculum Section */
@@ -557,47 +1040,53 @@
     .modules-grid {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 20px;
+      gap: 16px;
     }
 
     @media (min-width: 640px) {
-      .modules-grid { grid-template-columns: repeat(2, 1fr); }
+      .modules-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
     }
 
     @media (min-width: 1024px) {
-      .modules-grid { grid-template-columns: repeat(4, 1fr); }
+      .modules-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
     }
 
     .module-card {
-      background: var(--dark-card);
-      border: 1px solid rgba(255,255,255,0.05);
+      background: var(--dark-700);
+      border: 1px solid rgba(0, 212, 255, 0.1);
       border-radius: 16px;
       overflow: hidden;
       transition: all 0.3s;
     }
 
     .module-card:hover {
-      transform: translateY(-4px);
-      border-color: rgba(139,92,246,0.3);
+      transform: translateY(-6px);
+      border-color: rgba(0, 212, 255, 0.4);
+      box-shadow: 0 15px 50px rgba(0, 212, 255, 0.1);
     }
 
     .module-header {
-      padding: 20px;
-      background: rgba(139,92,246,0.05);
-      border-bottom: 1px solid rgba(255,255,255,0.05);
+      padding: 24px 20px;
+      background: rgba(0, 212, 255, 0.05);
+      border-bottom: 1px solid rgba(0, 212, 255, 0.1);
     }
 
     .module-number {
+      font-family: 'JetBrains Mono', monospace;
       font-size: 11px;
       font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 1px;
-      color: var(--primary-light);
-      margin-bottom: 4px;
+      letter-spacing: 2px;
+      color: var(--primary);
+      margin-bottom: 6px;
     }
 
     .module-card h3 {
-      font-size: 17px;
+      font-size: 18px;
       font-weight: 700;
     }
 
@@ -612,68 +1101,92 @@
     .module-list li {
       font-size: 13px;
       color: var(--text-muted);
-      padding: 6px 0;
+      padding: 8px 0;
       display: flex;
       align-items: flex-start;
-      gap: 8px;
+      gap: 10px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+    }
+
+    .module-list li:last-child {
+      border-bottom: none;
     }
 
     .module-list li::before {
-      content: '✓';
-      color: var(--accent);
+      content: '›';
+      color: var(--primary);
       font-weight: 700;
+      font-size: 16px;
+      line-height: 1;
       flex-shrink: 0;
     }
 
     /* Pricing Section */
     .pricing {
       padding: 100px 0;
-      background: var(--dark-lighter);
+      background: var(--dark-800);
     }
 
     .pricing-card {
-      max-width: 480px;
+      max-width: 500px;
       margin: 0 auto;
-      background: var(--dark-card);
+      background: var(--dark-700);
       border: 2px solid var(--primary);
       border-radius: 24px;
       padding: 32px 24px;
       text-align: center;
       position: relative;
-      box-shadow: var(--glow);
+      box-shadow: 0 0 80px rgba(0, 212, 255, 0.15);
     }
 
     @media (min-width: 640px) {
-      .pricing-card { padding: 40px; }
+      .pricing-card {
+        padding: 48px;
+      }
+    }
+
+    .pricing-card::before {
+      content: '';
+      position: absolute;
+      inset: -2px;
+      background: var(--gradient-primary);
+      border-radius: 26px;
+      z-index: -1;
+      opacity: 0.5;
+      filter: blur(20px);
     }
 
     .pricing-badge {
       position: absolute;
       top: -1px;
-      right: 24px;
-      background: var(--gradient);
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--gradient-primary);
       color: var(--dark);
-      padding: 8px 16px;
+      padding: 10px 24px;
       border-radius: 0 0 12px 12px;
-      font-size: 11px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
       font-weight: 700;
       text-transform: uppercase;
+      letter-spacing: 1px;
     }
 
     .pricing-title {
-      font-size: 22px;
+      font-size: 24px;
       font-weight: 700;
+      margin-top: 24px;
       margin-bottom: 4px;
     }
 
     .pricing-subtitle {
       color: var(--text-dim);
       font-size: 14px;
-      margin-bottom: 24px;
+      margin-bottom: 32px;
     }
 
     .price-display {
-      margin-bottom: 24px;
+      margin-bottom: 32px;
     }
 
     .price-original {
@@ -683,9 +1196,10 @@
     }
 
     .price-current {
-      font-size: 56px;
-      font-weight: 900;
-      background: var(--gradient);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 64px;
+      font-weight: 700;
+      background: var(--gradient-primary);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
@@ -699,16 +1213,16 @@
     .pricing-features {
       list-style: none;
       text-align: left;
-      margin-bottom: 24px;
+      margin-bottom: 32px;
     }
 
     .pricing-features li {
       display: flex;
       align-items: center;
-      gap: 12px;
-      padding: 12px 0;
-      font-size: 14px;
-      border-bottom: 1px solid rgba(255,255,255,0.05);
+      gap: 14px;
+      padding: 14px 0;
+      font-size: 15px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     }
 
     .pricing-features li:last-child {
@@ -717,41 +1231,49 @@
 
     .pricing-features li::before {
       content: '✓';
-      width: 20px;
-      height: 20px;
-      background: rgba(6,255,165,0.1);
+      width: 24px;
+      height: 24px;
+      background: rgba(0, 255, 136, 0.1);
       color: var(--accent);
-      border-radius: 50%;
+      border-radius: 6px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 11px;
+      font-size: 12px;
       font-weight: 700;
       flex-shrink: 0;
     }
 
     .pricing-cta {
       width: 100%;
-      background: var(--gradient);
+      background: var(--gradient-primary);
       color: var(--dark);
-      padding: 16px;
+      padding: 18px;
       border: none;
       border-radius: 12px;
-      font-size: 16px;
+      font-size: 17px;
       font-weight: 700;
       cursor: pointer;
       transition: all 0.3s;
     }
 
     .pricing-cta:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 30px rgba(139,92,246,0.4);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 40px rgba(0, 212, 255, 0.4);
     }
 
     .pricing-guarantee {
-      margin-top: 16px;
+      margin-top: 20px;
       font-size: 13px;
       color: var(--text-dim);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .pricing-guarantee svg {
+      color: var(--accent);
     }
 
     /* FAQ Section */
@@ -765,16 +1287,21 @@
     }
 
     .faq-item {
-      background: var(--dark-card);
-      border: 1px solid rgba(255,255,255,0.05);
+      background: var(--dark-700);
+      border: 1px solid rgba(0, 212, 255, 0.1);
       border-radius: 12px;
       margin-bottom: 12px;
       overflow: hidden;
+      transition: all 0.3s;
+    }
+
+    .faq-item:hover {
+      border-color: rgba(0, 212, 255, 0.3);
     }
 
     .faq-question {
       width: 100%;
-      padding: 20px;
+      padding: 24px;
       background: transparent;
       border: none;
       color: var(--text);
@@ -785,11 +1312,14 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      gap: 16px;
     }
 
     .faq-icon {
-      font-size: 18px;
+      font-size: 20px;
+      color: var(--primary);
       transition: transform 0.3s;
+      flex-shrink: 0;
     }
 
     .faq-item.active .faq-icon {
@@ -807,50 +1337,60 @@
     }
 
     .faq-answer p {
-      padding: 0 20px 20px;
+      padding: 0 24px 24px;
       color: var(--text-muted);
       font-size: 14px;
-      line-height: 1.7;
+      line-height: 1.8;
     }
 
     /* Waitlist Section */
     .waitlist {
       padding: 100px 0;
-      background: var(--dark-lighter);
+      background: var(--dark-800);
       text-align: center;
     }
 
+    .waitlist-visual {
+      margin-bottom: 40px;
+    }
+
+    .waitlist-icon {
+      width: 80px;
+      height: 80px;
+      background: var(--gradient-primary);
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 36px;
+      margin: 0 auto;
+      box-shadow: var(--glow-primary);
+    }
+
     .waitlist-form {
-      max-width: 450px;
+      max-width: 420px;
       margin: 0 auto;
     }
 
-    .form-row {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      margin-bottom: 12px;
-    }
-
-    @media (min-width: 640px) {
-      .form-row {
-        flex-direction: row;
-      }
+    .form-group {
+      margin-bottom: 16px;
     }
 
     .form-input {
-      flex: 1;
-      padding: 16px 20px;
-      background: var(--dark-card);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 10px;
+      width: 100%;
+      padding: 18px 24px;
+      background: var(--dark-700);
+      border: 1px solid rgba(0, 212, 255, 0.2);
+      border-radius: 12px;
       color: var(--text);
       font-size: 15px;
+      transition: all 0.3s;
     }
 
     .form-input:focus {
       outline: none;
       border-color: var(--primary);
+      box-shadow: 0 0 20px rgba(0, 212, 255, 0.2);
     }
 
     .form-input::placeholder {
@@ -858,58 +1398,142 @@
     }
 
     .form-btn {
-      background: var(--gradient);
+      width: 100%;
+      background: var(--gradient-primary);
       color: var(--dark);
-      padding: 16px 28px;
+      padding: 18px 32px;
       border: none;
-      border-radius: 10px;
-      font-size: 15px;
+      border-radius: 12px;
+      font-size: 16px;
       font-weight: 700;
       cursor: pointer;
       transition: all 0.3s;
-      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
     }
 
     .form-btn:hover {
       transform: translateY(-2px);
+      box-shadow: var(--glow-primary);
+    }
+
+    .form-btn:disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
     }
 
     .form-note {
-      font-size: 12px;
+      font-size: 13px;
       color: var(--text-dim);
-      margin-top: 12px;
+      margin-top: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      text-align: center;
     }
 
     /* Footer */
     .footer {
-      padding: 40px 0;
+      padding: 48px 0;
       text-align: center;
-      border-top: 1px solid rgba(255,255,255,0.05);
+      border-top: 1px solid rgba(0, 212, 255, 0.1);
     }
 
     .footer-logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
       font-size: 20px;
       font-weight: 800;
-      background: var(--gradient);
+      margin-bottom: 12px;
+    }
+
+    .footer-logo span {
+      background: var(--gradient-primary);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
-      margin-bottom: 8px;
     }
 
     .footer-text {
       color: var(--text-dim);
       font-size: 13px;
     }
+
+    /* Terminal-style code block for authenticity */
+    .terminal-block {
+      background: var(--dark);
+      border: 1px solid rgba(0, 212, 255, 0.2);
+      border-radius: 12px;
+      padding: 20px;
+      margin-top: 40px;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: left;
+    }
+
+    .terminal-header {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+
+    .terminal-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+    }
+
+    .terminal-dot.red {
+      background: #ff5f56;
+    }
+
+    .terminal-dot.yellow {
+      background: #ffbd2e;
+    }
+
+    .terminal-dot.green {
+      background: #27ca40;
+    }
+
+    .terminal-content {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.8;
+    }
+
+    .terminal-content .prompt {
+      color: var(--primary);
+    }
+
+    .terminal-content .success {
+      color: var(--accent);
+    }
   </style>
 </head>
+
 <body>
+
+  <!-- Grid Background -->
+  <div class="grid-bg"></div>
+
+  <!-- Scan Line Effect -->
+  <div class="scan-line"></div>
 
   <!-- Navigation -->
   <nav class="nav">
     <div class="container nav-content">
-      <div class="nav-logo">⚡ Antigravity</div>
-      <a href="#waitlist" class="nav-cta">Lista VIP</a>
+      <a href="#" class="nav-logo">
+        <div class="nav-logo-icon">🛡️</div>
+        <span>Sentinel</span>
+      </a>
+      <a href="#waitlist" class="nav-cta">Acesso Antecipado</a>
     </div>
   </nav>
 
@@ -918,35 +1542,66 @@
     <div class="container">
       <div class="hero-content">
         <div class="hero-badge animate">
-          <span class="hero-badge-dot"></span>
+          <span class="hero-badge-icon"></span>
+          <span class="hero-status">SISTEMA ATIVO</span>
           Pré-lançamento — Vagas Limitadas
         </div>
 
-        <h1 class="hero-title animate animate-delay-1">
-          Chega de Consertar<br>
-          <span class="highlight">Código da IA</span>
+        <div class="hero-visual animate animate-delay-1">
+          <div class="shield-container">
+            <div class="shield-rings"></div>
+            <div class="shield">
+              <svg viewBox="0 0 100 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <linearGradient id="shieldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:#00d4ff" />
+                    <stop offset="100%" style="stop-color:#7c3aed" />
+                  </linearGradient>
+                </defs>
+                <path d="M50 5 L95 20 L95 55 C95 80 75 100 50 115 C25 100 5 80 5 55 L5 20 L50 5Z"
+                  fill="url(#shieldGradient)" opacity="0.2" />
+                <path d="M50 5 L95 20 L95 55 C95 80 75 100 50 115 C25 100 5 80 5 55 L5 20 L50 5Z"
+                  stroke="url(#shieldGradient)" stroke-width="2" fill="none" />
+                <path d="M50 25 L75 35 L75 55 C75 70 65 82 50 92 C35 82 25 70 25 55 L25 35 L50 25Z"
+                  stroke="url(#shieldGradient)" stroke-width="1" fill="none" opacity="0.5" />
+                <text x="50" y="65" text-anchor="middle" fill="url(#shieldGradient)" font-family="JetBrains Mono"
+                  font-size="24" font-weight="700">✓</text>
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <h1 class="hero-title animate animate-delay-2">
+          <span class="line1">Código Blindado</span>
+          <span class="line2">Contra Erros de IA</span>
         </h1>
 
         <p class="hero-subtitle animate animate-delay-2">
-          Descubra o método que faz a IA escrever código que <strong>funciona de primeira</strong>. Sem loops infinitos de correção. Sem frustração.
+          O sistema de proteção em camadas que faz a IA escrever código que <strong>funciona de primeira</strong>.
+          Controle total. Zero retrabalho.
         </p>
 
-        <a href="#waitlist" class="hero-cta animate animate-delay-3">
-          Quero Aprender o Método →
-        </a>
+        <div class="hero-cta-group animate animate-delay-3">
+          <a href="#waitlist" class="hero-cta">
+            Ativar Proteção →
+          </a>
+          <a href="#curriculum" class="hero-cta-secondary">
+            Ver Módulos
+          </a>
+        </div>
 
         <div class="hero-stats animate animate-delay-3">
           <div class="hero-stat">
             <div class="hero-stat-value">4h+</div>
-            <div class="hero-stat-label">de conteúdo</div>
+            <div class="hero-stat-label">Conteúdo</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-value">5</div>
+            <div class="hero-stat-label">Camadas</div>
           </div>
           <div class="hero-stat">
             <div class="hero-stat-value">100%</div>
-            <div class="hero-stat-label">prático</div>
-          </div>
-          <div class="hero-stat">
-            <div class="hero-stat-value">1</div>
-            <div class="hero-stat-label">projeto real</div>
+            <div class="hero-stat-label">Prático</div>
           </div>
         </div>
       </div>
@@ -957,31 +1612,48 @@
   <section class="problem">
     <div class="container">
       <div class="section-header">
-        <div class="section-label">O Problema</div>
-        <h2 class="section-title">Isso te parece familiar?</h2>
-        <p class="section-subtitle">Todo mundo que usa IA pra codar passa por isso...</p>
+        <div class="section-label">Diagnóstico</div>
+        <h2 class="section-title">Sistema Vulnerável</h2>
+        <p class="section-subtitle">Falhas críticas no uso comum de IA para código</p>
       </div>
 
       <div class="problem-grid">
         <div class="problem-card">
-          <div class="problem-icon">🔄</div>
+          <div class="problem-icon">⚠️</div>
           <h3>Loop Infinito</h3>
-          <p>Você corrige um erro, a IA cria outro. E assim vai por horas.</p>
+          <p>Corrige um erro, cria outro. Ciclo sem fim de retrabalho.</p>
         </div>
         <div class="problem-card">
-          <div class="problem-icon">🎭</div>
-          <h3>IA "Alucinando"</h3>
-          <p>Ela inventa APIs que não existem com uma confiança absurda.</p>
+          <div class="problem-icon">🔴</div>
+          <h3>Alucinações</h3>
+          <p>IA inventa APIs e métodos que não existem no seu projeto.</p>
         </div>
         <div class="problem-card">
-          <div class="problem-icon">⏰</div>
-          <h3>Mais Lento</h3>
-          <p>No final, seria mais rápido ter feito tudo na mão.</p>
+          <div class="problem-icon">⏱️</div>
+          <h3>Lentidão Real</h3>
+          <p>Mais tempo corrigindo do que se tivesse feito manual.</p>
         </div>
         <div class="problem-card">
-          <div class="problem-icon">💔</div>
-          <h3>Frustração</h3>
-          <p>A promessa era 10x produtivo. A realidade? 10x frustrado.</p>
+          <div class="problem-icon">❌</div>
+          <h3>Sem Contexto</h3>
+          <p>Cada prompt é como falar com um dev que nunca viu seu código.</p>
+        </div>
+      </div>
+
+      <div class="terminal-block">
+        <div class="terminal-header">
+          <div class="terminal-dot red"></div>
+          <div class="terminal-dot yellow"></div>
+          <div class="terminal-dot green"></div>
+        </div>
+        <div class="terminal-content">
+          <span class="prompt">$</span> ai generate login-feature<br>
+          <span style="color: var(--warning);">⚠ Error: undefined method 'authenticate'</span><br>
+          <span class="prompt">$</span> ai fix authenticate<br>
+          <span style="color: var(--warning);">⚠ Error: missing user model reference</span><br>
+          <span class="prompt">$</span> ai fix user model<br>
+          <span style="color: var(--warning);">⚠ Error: incompatible database schema...</span><br>
+          <span style="color: var(--text-dim);"># Loop infinito de correções</span>
         </div>
       </div>
     </div>
@@ -991,26 +1663,96 @@
   <section class="solution">
     <div class="container">
       <div class="section-header">
-        <div class="section-label">A Solução</div>
-        <h2 class="section-title">O Método Antigravity</h2>
-        <p class="section-subtitle">Transforme a IA no seu melhor desenvolvedor</p>
+        <div class="section-label">Solução</div>
+        <h2 class="section-title">Método Sentinel</h2>
+        <p class="section-subtitle">Sistema de proteção em camadas para código de IA</p>
       </div>
 
       <div class="solution-grid">
         <div class="solution-card">
           <div class="solution-icon">🧠</div>
-          <h3>IA com Memória</h3>
-          <p>A IA aprende sobre seu projeto e nunca repete os mesmos erros. Ela consulta antes de agir.</p>
+          <h3>Memória Persistente</h3>
+          <p>A IA aprende e lembra de todo o contexto do seu projeto. Nunca mais começa do zero.</p>
         </div>
         <div class="solution-card">
           <div class="solution-icon">👥</div>
-          <h3>Time de Especialistas</h3>
-          <p>Em vez de uma IA genérica, você terá especialistas virtuais em cada área do desenvolvimento.</p>
+          <h3>Agentes Especializados</h3>
+          <p>Time de especialistas virtuais: arquitetura, backend, frontend, testes. Cada um expert na sua área.</p>
         </div>
         <div class="solution-card">
           <div class="solution-icon">🛡️</div>
-          <h3>Proteção Automática</h3>
-          <p>Verificações que impedem erros antes de acontecerem. A IA valida o próprio trabalho.</p>
+          <h3>Guards de Proteção</h3>
+          <p>Validações automáticas que interceptam e corrigem erros antes de chegarem ao código.</p>
+        </div>
+      </div>
+
+      <div class="terminal-block">
+        <div class="terminal-header">
+          <div class="terminal-dot red"></div>
+          <div class="terminal-dot yellow"></div>
+          <div class="terminal-dot green"></div>
+        </div>
+        <div class="terminal-content">
+          <span class="prompt">$</span> sentinel generate login-feature<br>
+          <span class="success">✓ Context loaded: project architecture</span><br>
+          <span class="success">✓ Guard check: database schema validated</span><br>
+          <span class="success">✓ Guard check: auth patterns verified</span><br>
+          <span class="success">✓ Tests generated and passing</span><br>
+          <span class="success">✓ Feature deployed successfully</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Protection Layers Section -->
+  <section class="layers">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label">Arquitetura</div>
+        <h2 class="section-title">5 Camadas de Proteção</h2>
+        <p class="section-subtitle">Cada camada bloqueia uma categoria de erro</p>
+      </div>
+
+      <div class="layers-visual">
+        <div class="layer-item">
+          <div class="layer-number">01</div>
+          <div class="layer-content">
+            <h3>Contexto de Projeto</h3>
+            <p>IA conhece sua arquitetura, stack e convenções</p>
+          </div>
+          <span class="layer-status">ACTIVE</span>
+        </div>
+        <div class="layer-item">
+          <div class="layer-number">02</div>
+          <div class="layer-content">
+            <h3>Agentes Especializados</h3>
+            <p>Experts virtuais para cada domínio do código</p>
+          </div>
+          <span class="layer-status">ACTIVE</span>
+        </div>
+        <div class="layer-item">
+          <div class="layer-number">03</div>
+          <div class="layer-content">
+            <h3>Regras de Negócio</h3>
+            <p>Validações específicas do seu domínio</p>
+          </div>
+          <span class="layer-status">ACTIVE</span>
+        </div>
+        <div class="layer-item">
+          <div class="layer-number">04</div>
+          <div class="layer-content">
+            <h3>Guards de Qualidade</h3>
+            <p>Verificação automática antes de aplicar código</p>
+          </div>
+          <span class="layer-status">ACTIVE</span>
+        </div>
+        <div class="layer-item">
+          <div class="layer-number">05</div>
+          <div class="layer-content">
+            <h3>Memória de Erros</h3>
+            <p>Aprende com falhas e nunca repete</p>
+          </div>
+          <span class="layer-status">ACTIVE</span>
         </div>
       </div>
     </div>
@@ -1020,26 +1762,26 @@
   <section class="results">
     <div class="container">
       <div class="section-header">
-        <div class="section-label">Resultados</div>
-        <h2 class="section-title">O Que Você Vai Conseguir</h2>
+        <div class="section-label">Métricas</div>
+        <h2 class="section-title">Resultados Mensuráveis</h2>
       </div>
 
       <div class="results-grid">
         <div class="result-card">
           <div class="result-value">90%</div>
-          <div class="result-label">menos correções</div>
+          <div class="result-label">Menos Correções</div>
         </div>
         <div class="result-card">
           <div class="result-value">3x</div>
-          <div class="result-label">mais velocidade</div>
+          <div class="result-label">Mais Velocidade</div>
         </div>
         <div class="result-card">
           <div class="result-value">0</div>
-          <div class="result-label">erros repetidos</div>
+          <div class="result-label">Erros Repetidos</div>
         </div>
         <div class="result-card">
-          <div class="result-value">∞</div>
-          <div class="result-label">menos frustração</div>
+          <div class="result-value">100%</div>
+          <div class="result-label">Sob Controle</div>
         </div>
       </div>
     </div>
@@ -1049,43 +1791,71 @@
   <section class="instructor">
     <div class="container">
       <div class="section-header">
-        <div class="section-label">Seu Mentor</div>
-        <h2 class="section-title">Aprenda com Quem Faz</h2>
+        <div class="section-label">Criador</div>
+        <h2 class="section-title">Quem Desenvolveu o Sistema</h2>
       </div>
 
       <div class="instructor-card">
         <div class="instructor-avatar">
-          <div class="avatar-placeholder">CG</div>
+          <img
+            src="https://media.licdn.com/dms/image/v2/D4D03AQGup6xZLw86Lg/profile-displayphoto-crop_800_800/B4DZphGvmBGkAM-/0/1762565750168?e=1771459200&v=beta&t=UTHrG82m9D6EK1HqrvTAi_mfN0aoAtZH39D3IM0Op1k"
+            alt="Camilo Girardelli" class="avatar-img">
         </div>
         <div class="instructor-info">
           <h3 class="instructor-name">Camilo Girardelli</h3>
-          <p class="instructor-role">Engenheiro de Software Senior • AI Expert</p>
+          <p class="instructor-role">AI Expert • Senior Software Architect • Fintech Specialist</p>
 
           <div class="instructor-badges">
-            <span class="badge badge-primary">19+ Anos de Experiência</span>
-            <span class="badge badge-accent">IEEE Senior Member</span>
-            <span class="badge badge-primary">Pós em ML & IA</span>
+            <span class="badge badge-primary">19+ Anos</span>
+            <span class="badge badge-accent">IEEE Senior</span>
+            <span class="badge badge-primary">ACM</span>
+            <span class="badge badge-accent">AAAI</span>
+            <span class="badge badge-primary">SBC</span>
+          </div>
+
+          <div class="instructor-stats">
+            <div class="stat-item">
+              <span class="stat-value">18.6k+</span>
+              <span class="stat-label">Seguidores</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-value">94</span>
+              <span class="stat-label">Skills</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-value">9</span>
+              <span class="stat-label">Empresas</span>
+            </div>
           </div>
 
           <p class="instructor-bio">
-            Com <strong>19 anos de experiência</strong> e <strong>10+ anos em projetos internacionais</strong> para empresas globais, desenvolvi este método para resolver os mesmos problemas que você enfrenta.
+            <strong>AI/ML & Digital Transformation Expert</strong> com 19+ anos escalando sistemas Fintech. Especialista
+            em Python, Cloud e arquitetura de software Full-Stack.
           </p>
 
           <p class="instructor-bio">
-            <strong>Pós-graduado em Machine Learning e IA pela University of Texas</strong>, sou membro senior do IEEE e participo de discussões sobre o futuro da IA no desenvolvimento de software.
+            <strong>Pós-graduado em AI e Machine Learning pela University of Texas at Austin</strong>. Certificado em
+            Deep Learning pela DeepLearning.AI (Andrew Ng).
           </p>
 
           <div class="instructor-companies">
-            <div class="company-label">Experiência Internacional</div>
-            <div class="company-names">Western Union • NBCUniversal • Vodafone</div>
+            <div class="company-label">// Projetos Internacionais</div>
+            <div class="company-names">Western Union • NBCUniversal • Vodafone • TIM • Mobly</div>
+          </div>
+
+          <div class="instructor-certs">
+            <div class="company-label">// Certificações</div>
+            <div class="cert-list">DeepLearning.AI • Neural Networks • Deep Learning • AWS • GCP</div>
           </div>
 
           <div class="instructor-social">
-            <a href="https://www.linkedin.com/in/camilooscargirardellibaptista/" target="_blank" rel="noopener" class="social-link">
+            <a href="https://www.linkedin.com/in/camilooscargirardellibaptista/" target="_blank" rel="noopener"
+              class="social-link">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                <path
+                  d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
               </svg>
-              Ver LinkedIn
+              18.6k seguidores
             </a>
           </div>
         </div>
@@ -1097,9 +1867,9 @@
   <section class="curriculum" id="curriculum">
     <div class="container">
       <div class="section-header">
-        <div class="section-label">Conteúdo</div>
-        <h2 class="section-title">O Que Você Vai Aprender</h2>
-        <p class="section-subtitle">4 módulos práticos para dominar o método</p>
+        <div class="section-label">Treinamento</div>
+        <h2 class="section-title">Protocolo de Implementação</h2>
+        <p class="section-subtitle">4 módulos para dominar o sistema completo</p>
       </div>
 
       <div class="modules-grid">
@@ -1110,10 +1880,10 @@
           </div>
           <div class="module-body">
             <ul class="module-list">
-              <li>A filosofia por trás do método</li>
-              <li>Setup completo do sistema</li>
-              <li>Como a IA aprende seu projeto</li>
-              <li>Primeiro resultado prático</li>
+              <li>Filosofia do sistema Sentinel</li>
+              <li>Setup completo do ambiente</li>
+              <li>Configurando contexto de projeto</li>
+              <li>Primeiro deploy protegido</li>
             </ul>
           </div>
         </div>
@@ -1121,13 +1891,13 @@
         <div class="module-card">
           <div class="module-header">
             <div class="module-number">Módulo 02</div>
-            <h3>Especialização</h3>
+            <h3>Agentes</h3>
           </div>
           <div class="module-body">
             <ul class="module-list">
-              <li>Criando especialistas virtuais</li>
+              <li>Criando agentes especializados</li>
               <li>Divisão de responsabilidades</li>
-              <li>Coordenação inteligente</li>
+              <li>Coordenação entre agentes</li>
               <li>Fluxos automatizados</li>
             </ul>
           </div>
@@ -1136,14 +1906,14 @@
         <div class="module-card">
           <div class="module-header">
             <div class="module-number">Módulo 03</div>
-            <h3>Proteção</h3>
+            <h3>Guards</h3>
           </div>
           <div class="module-body">
             <ul class="module-list">
+              <li>Sistema de validação</li>
+              <li>Guards de qualidade</li>
               <li>Prevenção de erros</li>
-              <li>Validação automática</li>
-              <li>Critérios de qualidade</li>
-              <li>Segurança do código</li>
+              <li>Métricas de proteção</li>
             </ul>
           </div>
         </div>
@@ -1156,9 +1926,9 @@
           <div class="module-body">
             <ul class="module-list">
               <li>SaaS completo do zero</li>
-              <li>Aplicação do método</li>
-              <li>Backend + Frontend</li>
-              <li>Deploy funcional</li>
+              <li>Aplicando todas as camadas</li>
+              <li>Backend + Frontend blindados</li>
+              <li>Deploy em produção</li>
             </ul>
           </div>
         </div>
@@ -1171,35 +1941,40 @@
     <div class="container">
       <div class="section-header">
         <div class="section-label">Investimento</div>
-        <h2 class="section-title">Preço de Pré-Lançamento</h2>
+        <h2 class="section-title">Acesso ao Sistema</h2>
       </div>
 
       <div class="pricing-card">
-        <div class="pricing-badge">🔥 68% OFF</div>
+        <div class="pricing-badge">🔒 Pré-Lançamento</div>
 
-        <h3 class="pricing-title">Acesso Completo</h3>
-        <p class="pricing-subtitle">Tudo para dominar o método</p>
+        <h3 class="pricing-title">Licença Completa</h3>
+        <p class="pricing-subtitle">Todas as camadas de proteção</p>
 
         <div class="price-display">
           <div class="price-original">R$ 147</div>
           <div class="price-current">R$ 47</div>
-          <div class="price-period">pagamento único</div>
+          <div class="price-period">pagamento único • acesso vitalício</div>
         </div>
 
         <ul class="pricing-features">
-          <li>+4 horas de conteúdo em vídeo</li>
-          <li>Projeto prático completo (SaaS)</li>
-          <li>Todos os templates prontos</li>
-          <li>Acesso vitalício</li>
+          <li>+4 horas de treinamento em vídeo</li>
+          <li>Projeto prático: SaaS blindado</li>
+          <li>Templates de todas as camadas</li>
+          <li>Acesso vitalício ao sistema</li>
           <li>Atualizações futuras inclusas</li>
-          <li>Comunidade exclusiva</li>
+          <li>Comunidade de implementadores</li>
         </ul>
 
         <a href="#waitlist">
-          <button class="pricing-cta">Garantir Minha Vaga →</button>
+          <button class="pricing-cta">Ativar Sistema Sentinel →</button>
         </a>
 
-        <div class="pricing-guarantee">🔒 7 dias de garantia incondicional</div>
+        <div class="pricing-guarantee">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+          </svg>
+          7 dias de garantia incondicional
+        </div>
       </div>
     </div>
   </section>
@@ -1208,28 +1983,30 @@
   <section class="faq">
     <div class="container">
       <div class="section-header">
-        <div class="section-label">Dúvidas</div>
+        <div class="section-label">FAQ</div>
         <h2 class="section-title">Perguntas Frequentes</h2>
       </div>
 
       <div class="faq-grid">
         <div class="faq-item">
           <button class="faq-question">
-            Preciso saber programar?
+            Preciso saber programar para usar o sistema?
             <span class="faq-icon">+</span>
           </button>
           <div class="faq-answer">
-            <p>Sim, o curso é para desenvolvedores. Você precisa de conhecimento básico de programação para aproveitar. Funciona do júnior ao sênior.</p>
+            <p>Sim. O Método Sentinel é para desenvolvedores. Você precisa de conhecimento básico de programação.
+              Funciona do nível júnior ao sênior.</p>
           </div>
         </div>
 
         <div class="faq-item">
           <button class="faq-question">
-            Qual ferramenta de IA usar?
+            Funciona com qual ferramenta de IA?
             <span class="faq-icon">+</span>
           </button>
           <div class="faq-answer">
-            <p>Usamos Cursor AI, mas o método pode ser adaptado para qualquer ferramenta (Copilot, ChatGPT, Claude). O importante é o método.</p>
+            <p>O treinamento usa Cursor AI, mas o sistema pode ser adaptado para qualquer ferramenta: Copilot, ChatGPT,
+              Claude. O importante é a metodologia, não a ferramenta.</p>
           </div>
         </div>
 
@@ -1239,7 +2016,8 @@
             <span class="faq-icon">+</span>
           </button>
           <div class="faq-answer">
-            <p>Acesso vitalício! Comprou uma vez, é seu para sempre. Inclui todas as atualizações futuras sem custo adicional.</p>
+            <p>Acesso vitalício. Uma vez ativado, o sistema é seu para sempre. Inclui todas as atualizações futuras sem
+              custo adicional.</p>
           </div>
         </div>
 
@@ -1249,17 +2027,19 @@
             <span class="faq-icon">+</span>
           </button>
           <div class="faq-answer">
-            <p>7 dias de garantia incondicional. Se não gostar, devolvemos 100% do seu dinheiro. Sem perguntas.</p>
+            <p>7 dias de garantia incondicional. Se o sistema não funcionar para você, devolvemos 100% do investimento.
+              Risco zero.</p>
           </div>
         </div>
 
         <div class="faq-item">
           <button class="faq-question">
-            Qual stack é usada no projeto?
+            Qual stack é usada no projeto prático?
             <span class="faq-icon">+</span>
           </button>
           <div class="faq-answer">
-            <p>React no frontend e Node.js no backend, com SQLite. Stack moderna e popular, fácil de adaptar para qualquer projeto.</p>
+            <p>React no frontend e Node.js no backend. Stack moderna e popular. Os conceitos de proteção se aplicam a
+              qualquer tecnologia.</p>
           </div>
         </div>
       </div>
@@ -1269,18 +2049,43 @@
   <!-- Waitlist Section -->
   <section class="waitlist" id="waitlist">
     <div class="container">
-      <div class="section-header">
-        <div class="section-label">Lista VIP</div>
-        <h2 class="section-title">Entre na Lista de Espera</h2>
-        <p class="section-subtitle">Garanta o preço especial de pré-lançamento</p>
+      <div class="waitlist-visual">
+        <div class="waitlist-icon">🛡️</div>
       </div>
 
-      <form class="waitlist-form" action="#" method="POST">
-        <div class="form-row">
-          <input type="email" class="form-input" placeholder="Seu melhor email" required>
-          <button type="submit" class="form-btn">Quero Entrar →</button>
+      <div class="section-header">
+        <div class="section-label">Acesso Antecipado</div>
+        <h2 class="section-title">Ativar Sistema Sentinel</h2>
+        <p class="section-subtitle">Entre na lista para garantir o preço de pré-lançamento</p>
+      </div>
+
+      <!-- FORMULÁRIO: Configure o action com seu Formspree ID -->
+      <form class="waitlist-form" action="https://formspree.io/f/SEU_ID_AQUI" method="POST" id="leadForm">
+        <div class="form-group">
+          <input type="text" name="nome" class="form-input" placeholder="Seu nome completo" required>
         </div>
-        <p class="form-note">🔒 Seus dados estão seguros. Zero spam.</p>
+        <div class="form-group">
+          <input type="email" name="email" class="form-input" placeholder="Seu melhor email" required>
+        </div>
+        <div class="form-group">
+          <input type="tel" name="telefone" class="form-input" placeholder="WhatsApp (com DDD)" required
+            pattern="[0-9]{10,11}" title="Digite apenas números: DDD + número">
+        </div>
+        <input type="hidden" name="_subject" value="🚀 Novo Lead - Método Sentinel">
+        <input type="hidden" name="_next" value="obrigado.html">
+        <button type="submit" class="form-btn">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" />
+          </svg>
+          Quero Entrar na Lista VIP
+        </button>
+        <p class="form-note">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+            <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+          </svg>
+          Dados protegidos • Você será adicionado ao grupo VIP do WhatsApp
+        </p>
       </form>
     </div>
   </section>
@@ -1288,8 +2093,10 @@
   <!-- Footer -->
   <footer class="footer">
     <div class="container">
-      <div class="footer-logo">⚡ Antigravity</div>
-      <p class="footer-text">© 2024 Método Antigravity. Todos os direitos reservados.</p>
+      <div class="footer-logo">
+        🛡️ <span>Método Sentinel</span>
+      </div>
+      <p class="footer-text">© 2024 Método Sentinel. Sistema de proteção para código de IA.</p>
     </div>
   </footer>
 
@@ -1323,13 +2130,19 @@
       });
     }, { threshold: 0.1 });
 
-    document.querySelectorAll('.problem-card, .solution-card, .result-card, .module-card').forEach(el => {
+    document.querySelectorAll('.problem-card, .solution-card, .result-card, .module-card, .layer-item').forEach(el => {
       el.style.opacity = '0';
       el.style.transform = 'translateY(20px)';
       el.style.transition = 'all 0.6s ease';
       observer.observe(el);
     });
+
+    // Layer items stagger animation
+    document.querySelectorAll('.layer-item').forEach((el, i) => {
+      el.style.transitionDelay = `${i * 0.1}s`;
+    });
   </script>
 
 </body>
+
 </html>
